@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Access Review &amp; Audit Trail for Jira</title>
+<meta name="description" content="Privacy policy for Access Review & Audit Trail for Jira by DVLS Labs. The app runs entirely on Atlassian infrastructure and does not transmit data to any external server." />
+<link rel="icon" href="logo.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <img class="logo" src="logo.svg" alt="Access Review logo" />
+    <a class="brand" href="index.html">Access Review &amp; Audit Trail<small>by DVLS Labs</small></a>
+    <nav class="nav">
+      <a href="documentation.html">Documentation</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 25 June 2026</p>
+
+    <div class="card">
+      <h2>Summary</h2>
+      <p><strong>Access Review &amp; Audit Trail for Jira</strong> ("the App") is an
+        Atlassian Forge app published by <strong>DVLS Labs</strong> ("we", "us"). The App
+        runs <strong>entirely on Atlassian's infrastructure</strong>. It does
+        <strong>not</strong> send your data to any external server, third-party service,
+        or analytics provider. All data the App reads and stores remains inside your
+        Atlassian cloud environment.</p>
+    </div>
+
+    <div class="card">
+      <h2>1. Who we are</h2>
+      <p>DVLS Labs is the developer of the App and acts as a <strong>data processor</strong>
+        on behalf of you, the Atlassian customer, who remains the <strong>data
+        controller</strong> of your Jira data. Contact:
+        <a href="mailto:dejan@dvlslabs.com">dejan@dvlslabs.com</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. What data the App accesses</h2>
+      <p>The App uses read-only Jira permission scopes. It reads only the metadata needed
+        to compute access reviews:</p>
+      <ul>
+        <li><strong>Group memberships</strong> — which accounts belong to which Jira groups.</li>
+        <li><strong>Project roles</strong> — which accounts and groups hold which project roles.</li>
+        <li><strong>Project permission schemes</strong> — which principals are granted which
+          permissions on which projects.</li>
+        <li><strong>Audit log records</strong> — permission-change events, used to enrich the
+          change history.</li>
+        <li><strong>Account identifiers</strong> — Atlassian account IDs, display names, and
+          avatar URLs needed to label who holds access.</li>
+      </ul>
+      <p>The App does <strong>not</strong> read issue content, comments, attachments,
+        worklogs, or any business data inside your projects.</p>
+    </div>
+
+    <div class="card">
+      <h2>3. What data the App stores, and where</h2>
+      <p>To produce a diff between reviews, the App stores snapshots of the permission
+        metadata listed above in <strong>Forge SQL</strong> — a managed database provided
+        by Atlassian and hosted within Atlassian's cloud infrastructure. This includes:</p>
+      <ul>
+        <li>Access "edges" (who has what access) per snapshot.</li>
+        <li>Change events (grants added or removed between snapshots).</li>
+        <li>Review cycles and reviewer sign-off (attestation) records, including the
+          reviewer's account ID and a timestamp.</li>
+        <li>Principal labels (account/group/project IDs and display names) for readability.</li>
+      </ul>
+      <p>No data is stored on DVLS Labs servers, because DVLS Labs operates no servers for
+        this App. We have no independent copy of your data.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. No data egress</h2>
+      <p>The App declares <strong>no external (egress) network domains</strong>. It cannot,
+        by design, transmit your data outside Atlassian. Reports (CSV and PDF) are generated
+        locally in your browser and downloaded directly to your device — they are not routed
+        through any external service.</p>
+    </div>
+
+    <div class="card">
+      <h2>5. Sub-processors</h2>
+      <p>The only sub-processor is <strong>Atlassian</strong>, which hosts the App runtime
+        and the Forge SQL database under its own
+        <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener">privacy
+        and security commitments</a>. We use no other sub-processors, no third-party
+        analytics, and no advertising or tracking technologies.</p>
+    </div>
+
+    <div class="card">
+      <h2>6. Data retention and deletion</h2>
+      <p>Snapshots and review history are retained so that the App can show change over time
+        and preserve audit evidence beyond Jira's native 180-day audit-log limit. When you
+        <strong>uninstall</strong> the App, the associated Forge SQL data is removed by
+        Atlassian in accordance with the Forge data-retention lifecycle. You may also request
+        deletion of stored review data at any time by contacting us.</p>
+    </div>
+
+    <div class="card">
+      <h2>7. Legal basis &amp; your rights (GDPR)</h2>
+      <p>Because the App processes data only on your instruction and within your Atlassian
+        environment, you (the controller) determine the legal basis for processing. As the
+        App holds no independent copy of your data, requests to access, correct, or delete
+        personal data are fulfilled directly within your Atlassian instance, or by
+        uninstalling the App. We will assist with any such request — contact
+        <a href="mailto:dejan@dvlslabs.com">dejan@dvlslabs.com</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>8. Changes to this policy</h2>
+      <p>We may update this policy as the App evolves. Material changes will be reflected by
+        the "Last updated" date above and, where appropriate, in the App's release notes.</p>
+    </div>
+
+    <div class="card">
+      <h2>9. Contact</h2>
+      <p>Questions about privacy or data handling:
+        <a href="mailto:dejan@dvlslabs.com">dejan@dvlslabs.com</a> ·
+        Support: <a href="mailto:support@dvlslabs.com">support@dvlslabs.com</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© DVLS Labs</span>
+    <a href="documentation.html">Documentation</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:support@dvlslabs.com">support@dvlslabs.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

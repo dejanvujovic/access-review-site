@@ -1,0 +1,8 @@
+<svg width="144" height="144" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Access Review">
+  <!-- back square: previous snapshot (ghost neutral) -->
+  <rect x="26" y="26" width="68" height="68" rx="16" fill="#CBD5DD"/>
+  <!-- front square: current snapshot (teal) -->
+  <rect x="50" y="50" width="68" height="68" rx="16" fill="#14B8A6"/>
+  <!-- white checkmark: verified / sign-off -->
+  <path d="M68 84 l10 10 l20 -22" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

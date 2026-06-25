@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Documentation — Access Review &amp; Audit Trail for Jira</title>
+<meta name="description" content="How to install and use Access Review & Audit Trail for Jira: snapshots, permission diff, reviewer sign-off, and audit-ready CSV/PDF export." />
+<link rel="icon" href="logo.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <img class="logo" src="logo.svg" alt="Access Review logo" />
+    <a class="brand" href="index.html">Access Review &amp; Audit Trail<small>by DVLS Labs</small></a>
+    <nav class="nav">
+      <a href="documentation.html">Documentation</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <h1>Documentation</h1>
+    <p class="updated">Access Review &amp; Audit Trail for Jira · Last updated: 25 June 2026</p>
+
+    <div class="card">
+      <h2>Overview</h2>
+      <p>Access Review &amp; Audit Trail helps Jira admins prove who has access to what —
+        and exactly how it changed over time. It takes periodic snapshots of project, group,
+        and role permissions, shows a clean diff of every grant added or removed since the
+        last review, lets reviewers sign off on each cycle, and exports audit-ready evidence
+        as CSV or PDF. The App runs entirely on Atlassian infrastructure with
+        <strong>no data egress</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Installation</h2>
+      <ol>
+        <li>Open the App's Atlassian Marketplace listing and choose <strong>Try it free</strong>
+          (30-day trial) or <strong>Buy now</strong>.</li>
+        <li>Select the Jira site to install on and approve the requested read-only permissions.</li>
+        <li>Open the App from your Jira apps menu. You will land on the
+          <strong>Access Review</strong> page.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Permissions the App requests (all read-only)</h2>
+      <table>
+        <thead><tr><th>Scope</th><th>Why it is needed</th></tr></thead>
+        <tbody>
+          <tr><td><code>read:group:jira</code>, <code>read:user:jira</code>, <code>read:avatar:jira</code></td>
+              <td>Read group membership and account labels (who is in which group).</td></tr>
+          <tr><td><code>read:jira-work</code></td>
+              <td>Iterate projects and read project-role actors.</td></tr>
+          <tr><td><code>read:permission-scheme:jira</code></td>
+              <td>Read project permission-scheme grants per project.</td></tr>
+          <tr><td><code>read:audit-log:jira</code></td>
+              <td>Read permission-change events to enrich the change history.</td></tr>
+        </tbody>
+      </table>
+      <p>The App requests <strong>no write scopes</strong> and declares
+        <strong>no external network domains</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Getting started</h2>
+      <h3>1. Run your first snapshot</h3>
+      <p>On first open you will see an empty state. Click <strong>Run your first access
+        snapshot</strong>. The App scans your group memberships, project roles, and project
+        permissions and stores a baseline snapshot. The first run also prepares the App's
+        storage automatically.</p>
+
+      <h3>2. Review the current access</h3>
+      <p>After a snapshot, the <strong>Current access</strong> card shows how many access
+        grants exist by category (group membership, project role, project permission). This
+        is the authoritative picture of who has access right now.</p>
+
+      <h3>3. Let snapshots accumulate</h3>
+      <p>Snapshots run on a weekly schedule automatically, and you can trigger one any time.
+        Each new snapshot is compared against the previous one so the App can show what
+        changed between two points in time.</p>
+    </div>
+
+    <div class="card">
+      <h2>Running an access review (attestation)</h2>
+      <ol>
+        <li><strong>Open a review cycle.</strong> A cycle covers the changes since the last
+          closed review up to the most recent complete snapshot.</li>
+        <li><strong>Review the change list.</strong> Every <em>ADDED</em> and <em>REMOVED</em>
+          grant in the period is listed, grouped by project, group, and role. Changes are
+          matched on stable account/group IDs, so renaming a user or group is never shown as
+          a false change.</li>
+        <li><strong>Record a decision.</strong> For the cycle, a reviewer records a sign-off
+          decision — <code>approved</code>, <code>revoke</code> (flag access that should be
+          removed), or <code>acknowledged</code>. Each decision is stored with the reviewer's
+          account ID and a timestamp.</li>
+        <li><strong>Close the cycle.</strong> Closing locks the review as a permanent,
+          append-only attestation record that your auditors can rely on.</li>
+      </ol>
+      <p><strong>Changing a decision:</strong> records are append-only. To change a previously
+        recorded decision within an open cycle, submit a new decision for the same item — the
+        latest decision is the effective one, and the full trail is retained. Once a cycle is
+        closed it is immutable; start a new cycle for subsequent changes.</p>
+    </div>
+
+    <div class="card">
+      <h2>Exporting audit evidence</h2>
+      <p>From a review cycle you can export:</p>
+      <ul>
+        <li><strong>CSV</strong> — the review, sign-off, and change history as data for
+          spreadsheets or evidence repositories.</li>
+        <li><strong>PDF</strong> — a formatted, branded report suitable for SOC&nbsp;2 and
+          ISO&nbsp;27001 audit evidence.</li>
+      </ul>
+      <p>Both formats are generated locally in your browser and downloaded directly to your
+        device. No export data is sent to any external service.</p>
+    </div>
+
+    <div class="card">
+      <h2>Free vs. paid features</h2>
+      <table>
+        <thead><tr><th>Capability</th><th>Plan</th></tr></thead>
+        <tbody>
+          <tr><td>View current access &amp; snapshots</td><td>Free</td></tr>
+          <tr><td>Permission change diff</td><td>Free</td></tr>
+          <tr><td>Reviewer sign-off (attestation)</td><td>Paid</td></tr>
+          <tr><td>CSV / PDF audit export</td><td>Paid</td></tr>
+          <tr><td>Full append-only history beyond 180 days</td><td>Paid</td></tr>
+        </tbody>
+      </table>
+      <p>Entitlement is enforced on the server. A 30-day free trial unlocks all paid features.</p>
+    </div>
+
+    <div class="card">
+      <h2>Coverage note</h2>
+      <p>Project, group, and role access is read <strong>authoritatively</strong>. Global /
+        admin-level access is shown as an <strong>approximate</strong> layer with a clear
+        confidence flag, because it is derived rather than read directly. Treat
+        approximate-flagged rows as indicative.</p>
+    </div>
+
+    <div class="card">
+      <h2>Privacy &amp; security</h2>
+      <p>The App runs entirely on Atlassian infrastructure, stores data only in Atlassian-hosted
+        Forge SQL, requests read-only scopes, and performs no data egress. See the full
+        <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Support</h2>
+      <p>Questions, bugs, or feature requests:
+        <a href="mailto:support@dvlslabs.com">support@dvlslabs.com</a>. We typically respond
+        within two business days.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© DVLS Labs</span>
+    <a href="documentation.html">Documentation</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:support@dvlslabs.com">support@dvlslabs.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
